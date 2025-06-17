@@ -153,11 +153,11 @@ jobs:
 
       - name: Download apps
         working-directory: ${{ github.workspace }}/e2e
-        run: ./download_apps
+        run: ./download_apps.sh
 
       - name: Install apps
         working-directory: ${{ github.workspace }}/e2e
-        run: ./install_apps android
+        run: ./install_apps.sh android
 
       - name: Start screen recording of AVD
         run: |
@@ -167,7 +167,7 @@ jobs:
       - name: Run tests
         working-directory: ${{ github.workspace }}/e2e
         timeout-minutes: 20
-        run: ./run_tests android
+        run: ./run_tests.sh android
 
       - name: Stop screen recording of AVD
         if: success() || failure()
@@ -237,11 +237,11 @@ jobs:
 
       - name: Download apps
         working-directory: ${{ github.workspace }}/e2e
-        run: ./download_apps
+        run: ./download_apps.sh
 
       - name: Install apps
         working-directory: ${{ github.workspace }}/e2e
-        run: ./install_apps ios
+        run: ./install_apps.sh ios
 
       - name: Start screen recording
         run: |
@@ -251,7 +251,7 @@ jobs:
       - name: Run tests
         working-directory: ${{ github.workspace }}/e2e
         timeout-minutes: 120
-        run: ./run_tests ios
+        run: ./run_tests.sh ios
 
       - name: Stop screen recording
         if: success() || failure()

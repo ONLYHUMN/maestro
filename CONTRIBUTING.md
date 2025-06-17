@@ -28,14 +28,17 @@ Once your PR is merged, it usually takes about a week until it becomes publicly 
 
 ### Requirements
 
+#### 1. Java
 Maestro's minimal deployment target is Java 8, and we strive to keep it this way
 for as long possible, because our analytics indicate that (as of September 2024) many
 users still use Java 8.
 
 For development, you need to use Java 11 or newer.
 
+#### 2. Maestro installed locally
+
 If you made changes to the CLI, rebuilt it with `./gradlew :maestro-cli:installDist`. This will generate a startup shell
-script in `./maestro-cli/build/install/maestro/bin/maestro`. Use it instead of globally installed `maestro`.
+script in `./maestro-cli/build/install/maestro/bin/maestro`. To run the e2e tests, this must be in your `PATH`.
 
 If you made changes to the iOS XCTest runner app, make sure they are compatible with the version of Xcode used by the GitHub Actions build step. It is currently built using the default version of Xcode listed in the macos runner image [readme][macos_builder_readme].
 If you introduce changes that work locally but fail to build when you make a PR, check if you used a feature used in a newer version of Swift or some other new Xcode setting.
